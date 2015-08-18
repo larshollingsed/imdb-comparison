@@ -1,9 +1,29 @@
 <h3>
   Enter a movie to search
 </h3>
-{{movie.year}}
-<input type="text" ng-model="movie_input"></input>
-<button ng-click="searchMovie()"></button>
-<p ng-repeat="cast in movie.cast" ng-model="movie.cast">
-  {{cast}}
-</p>
+<input type="text" ng-model="movie1"></input><br>
+<input type="text" ng-model="movie2"></input>
+<button ng-click="compareMovies()">Compare casts</button>
+<table>
+  <tr>
+    <th>
+    </th>
+    <th>
+      {{movie1}}
+    </th>
+    <th>
+      {{movie2}}
+    </th>
+  </tr>
+  <tr ng-repeat="actor in cross_cast">
+    <td>
+      {{actor.name}}
+    </td>
+    <td>
+      {{actor.role1}}
+    </td>
+    <td>
+      {{actor.role2}}
+    </td>
+  </tr>
+</table>

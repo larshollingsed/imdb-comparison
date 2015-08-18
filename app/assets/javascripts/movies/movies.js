@@ -11,6 +11,13 @@ imdb.factory('movies', [
       })
     }
     
+    x.compareMovies = function(movie1, movie2) {
+      return $http.post("/compare_movies", {movie1: movie1, movie2: movie2})
+      .success(function(data) {
+        return data
+      })
+    }
+    
     
     return x
   }

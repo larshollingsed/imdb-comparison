@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "friends#index"
   
   post "movie_search" => "search#movie_search"
+  
+  post "compare_movies" => "search#compare_movies"
     
   resources :friends
   # The priority is based upon order of creation: first created -> highest priority.

@@ -21,8 +21,6 @@ class Search < ActiveRecord::Base
     movie.cast_members_characters
   end
   
-  
-  
   # returns the cast members who were in both movies
   def self.compare_casts(movie1, movie2)
     movie1_cast_characters = Search.movie_cast(movie1)
@@ -32,7 +30,10 @@ class Search < ActiveRecord::Base
     crossover = movie1_cast.keys & movie2_cast.keys
     crossover_characters = {}
     crossover.each do |actor|
-      crossover_characters[actor] = [movie1_cast[actor], movie2_cast[actor]]
+      crossover_characters[actor] = {}
+      crossover_characters[actor][:name] = actor
+      crossover_characters[actor][:role1] = movie1_cast[actor]
+      crossover_characters[actor][:role2] = movie2_cast[actor]
     end
     crossover_characters
   end

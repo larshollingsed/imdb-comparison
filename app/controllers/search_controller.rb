@@ -6,4 +6,10 @@ class SearchController < ApplicationController
     year = movie.year
     render :json => {cast: cast, year: year}
   end
+  
+  def compare_movies
+    movie1 = params[:movie1]
+    movie2 = params[:movie2]
+    render :json => Search.compare_casts(movie1, movie2)
+  end
 end
