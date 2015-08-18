@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   root "friends#index"
+  
+  post "movie_search" => "search#movie_search"
+    
   resources :friends
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

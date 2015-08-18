@@ -9,6 +9,6 @@ class Search < ActiveRecord::Base
   end
   
   def self.movie_info(string)
-    Imdb::Movie.new(Imdb::Search.new(string).movies.first.id)
+    Search.movies(Search.imdb(string).movies.first.id)
   end
 end

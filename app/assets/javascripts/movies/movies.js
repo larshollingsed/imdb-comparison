@@ -4,7 +4,11 @@ imdb.factory('movies', [
     var x = {}
     
     x.search = function(input){
-      alert(input)
+      return $http.post("/movie_search", {search: input})
+      .success(function(data) {
+        console.log(data)
+        return data
+      })
     }
     
     
