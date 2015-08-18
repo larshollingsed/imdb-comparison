@@ -1,7 +1,11 @@
 imdb.factory('movies', [
   '$http',
   function($http){
-    var x
+    var x = {}
+    
+    x.search = function(input){
+      alert(input)
+    }
     
     
     return x
