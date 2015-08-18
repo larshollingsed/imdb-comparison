@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "movie_search" => "search#movie_search"
   
   post "compare_movies" => "search#compare_movies"
+  
+  post "movie_options" => "search#movie_options"
     
   resources :friends
   # The priority is based upon order of creation: first created -> highest priority.

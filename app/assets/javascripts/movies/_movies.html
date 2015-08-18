@@ -1,7 +1,10 @@
 <h3>
   Enter a movie to search
 </h3>
-<input type="text" ng-model="movie1"></input><br>
+<input type="text" ng-model="movie1"></input><button ng-click="movie1Options()">See options</button><br><br><br><br>
+<p ng-repeat="movie in movie1_options | orderBy: 'year'">
+  {{movie.name}}
+<p>
 <input type="text" ng-model="movie2"></input>
 <button ng-click="compareMovies()">Compare casts</button>
 <table>

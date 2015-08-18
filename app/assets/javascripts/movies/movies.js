@@ -18,6 +18,13 @@ imdb.factory('movies', [
       })
     }
     
+    x.movieOptions = function(movie) {
+      return $http.post("/movie_options", {movie: movie})
+      .success(function(data) {
+        return data
+      })
+    }
+    
     
     return x
   }

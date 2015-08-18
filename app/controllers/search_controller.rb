@@ -12,4 +12,16 @@ class SearchController < ApplicationController
     movie2 = params[:movie2]
     render :json => Search.compare_casts(movie1, movie2)
   end
+  
+  def movie_options
+    movie_input = params[:movie]
+    movies = Search.imdb(movie_input)
+    movie_options = {}
+    movies.movies[0..10].each do |movie|
+      movie_options[movie.title] = {}
+      movie_options[movie.title][:name] = movie.title
+      movie_options[movie.title][:year] = movie.year
+    end
+    render :json => movie_options
+  end
 end
