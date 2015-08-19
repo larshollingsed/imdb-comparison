@@ -16,13 +16,14 @@ class Search < ActiveRecord::Base
   end
   
   # gets the cast for a given search string
-  def self.movie_cast(string)
-    movie = Search.movie_info(string)
+  def self.movie_cast(id)
+    movie = Search.movies(id)
     movie.cast_members_characters
   end
   
   # returns the cast members who were in both movies
   def self.compare_casts(movie1, movie2)
+
     movie1_cast_characters = Search.movie_cast(movie1)
     movie2_cast_characters = Search.movie_cast(movie2)
     movie1_cast = SearchHelper.imdb_to_hash(movie1_cast_characters)

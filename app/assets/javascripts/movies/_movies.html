@@ -1,15 +1,20 @@
 <h3>
   Enter a movie to search
 </h3>
-<input type="text" ng-model="movie1"></input><button ng-click="movie1Options()">See options</button><br>
+<input type="text" ng-model="movie1"></input><button ng-click="movie1Options()">See options for movie 1</button><br>
 
-<label data-ng-repeat="movie in movie1Options">
-  <input type="radio" value="{{movie.id}}" ng-model="movie.movie1Input" />
+<p data-ng-repeat="movie in movie1Options" ng-click="chooseMovie1(movie)" ng-model="movie1Input">
   {{movie.name}}
-</label>
+</p>
 
-<input type="text" ng-model="movie2"></input>
+<input type="text" ng-model="movie2"></input><button ng-click="movie2Options()">See options for movie 2</button><br>
+
+<p data-ng-repeat="movie in movie2Options" ng-click="chooseMovie2(movie)" ng-model="movie2Input">
+  {{movie.name}}
+</p>
 <button ng-click="compareMovies(); working=false" ng-show="working">Compare casts</button>
+Movie 1 - {{movie1Choice}}<br>
+Movie 2 - {{movie2Choice}}
 <table>
   <tr>
     <th>

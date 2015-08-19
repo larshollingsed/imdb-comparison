@@ -16,7 +16,7 @@ imdb.controller('MovieCtrl', [
     // }
     
     $scope.compareMovies = function() {
-      movies.compareMovies($scope.movie1, $scope.movie2)
+      movies.compareMovies($scope.movie1Id, $scope.movie2Id)
       .then(function(response) {
         $scope.crossCast = response.data
         $scope.working = true;
@@ -30,9 +30,21 @@ imdb.controller('MovieCtrl', [
       })
     }
     
-    // $scope.setMovie1 = function(id) {
-      // $scope.movie1Input = id;
-    // }
+    $scope.chooseMovie1 = function(movie) {
+      $scope.movie1Choice = movie.name;
+      $scope.movie1Id = movie.id
+    }
 
+    $scope.movie2Options = function() {
+      movies.movieOptions($scope.movie2)
+      .then(function(response) {
+        $scope.movie2Options = response.data
+      })
+    }
+
+    $scope.chooseMovie2 = function(movie) {
+      $scope.movie2Choice = movie.name;
+      $scope.movie2Id = movie.id
+    }
   }
 ])
