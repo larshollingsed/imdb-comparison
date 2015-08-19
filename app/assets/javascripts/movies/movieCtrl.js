@@ -4,6 +4,7 @@ imdb.controller('MovieCtrl', [
   function($scope, movies) {
     $scope.movies = movies;
     $scope.movie = {};
+    $scope.working = true;
 
     // $scope.searchMovie = function() {
     //   movies.search($scope.movie_input)
@@ -18,6 +19,7 @@ imdb.controller('MovieCtrl', [
       movies.compareMovies($scope.movie1, $scope.movie2)
       .then(function(response) {
         $scope.crossCast = response.data
+        $scope.working = true;
       })
     }
     

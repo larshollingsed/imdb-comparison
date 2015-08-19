@@ -9,7 +9,7 @@
 </label>
 
 <input type="text" ng-model="movie2"></input>
-<button ng-click="compareMovies()">Compare casts</button>
+<button ng-click="compareMovies(); working=false" ng-show="working">Compare casts</button>
 <table>
   <tr>
     <th>
