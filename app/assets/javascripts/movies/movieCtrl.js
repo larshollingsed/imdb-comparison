@@ -17,16 +17,20 @@ imdb.controller('MovieCtrl', [
     $scope.compareMovies = function() {
       movies.compareMovies($scope.movie1, $scope.movie2)
       .then(function(response) {
-        $scope.cross_cast = response.data
+        $scope.crossCast = response.data
       })
     }
     
     $scope.movie1Options = function() {
       movies.movieOptions($scope.movie1)
       .then(function(response) {
-        $scope.movie1_options = response.data
+        $scope.movie1Options = response.data
       })
     }
+    
+    // $scope.setMovie1 = function(id) {
+      // $scope.movie1Input = id;
+    // }
 
   }
 ])

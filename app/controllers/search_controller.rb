@@ -21,6 +21,8 @@ class SearchController < ApplicationController
       movie_options[movie.title] = {}
       movie_options[movie.title][:name] = movie.title
       movie_options[movie.title][:year] = movie.year
+      movie_options[movie.title][:id] = movie.id
+      # binding.pry
     end
     render :json => movie_options
   end
