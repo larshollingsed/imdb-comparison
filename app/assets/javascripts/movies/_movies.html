@@ -1,29 +1,42 @@
 <h3>
-  Enter a movie to search
+  Compare the casts of two movies
 </h3>
-<input type="text" ng-model="movie1"></input><button ng-click="movie1Options()">See options for movie 1</button><br>
+<div class="movie_chooser">
+  <input type="text" ng-model="movie1"></input>
+  <button ng-click="movie1Search(); movie1Button = true" ng-disabled="movie1Button">See options for movie 1</button>
+  
+  <p data-ng-repeat="movie in movie1Options" ng-click="chooseMovie1(movie)" ng-model="movie1Input">
+    {{movie.name}}
+  </p>
+</div>
+  
+<div class="movie_chooser">
+  <input type="text" ng-model="movie2"></input>
+  <button ng-click="movie2Search(); movie2Button = true" ng-disabled="movie2Button">See options for movie 2</button>
+  
+  <p data-ng-repeat="movie in movie2Options" ng-click="chooseMovie2(movie)" ng-model="movie2Input">
+    {{movie.name}}
+  </p>
+</div>
 
-<p data-ng-repeat="movie in movie1Options" ng-click="chooseMovie1(movie)" ng-model="movie1Input">
-  {{movie.name}}
-</p>
+<div style="clear: both;"></div>
 
-<input type="text" ng-model="movie2"></input><button ng-click="movie2Options()">See options for movie 2</button><br>
-
-<p data-ng-repeat="movie in movie2Options" ng-click="chooseMovie2(movie)" ng-model="movie2Input">
-  {{movie.name}}
-</p>
-<button ng-click="compareMovies(); working=false" ng-show="working">Compare casts</button>
 Movie 1 - {{movie1Choice}}<br>
-Movie 2 - {{movie2Choice}}
-<table>
+Movie 2 - {{movie2Choice}}<br>
+<button ng-click="compareMovies(); working=true" ng-disabled="working">
+  Compare casts
+</button>
+
+<table ng-show="crossCast">
   <tr>
     <th>
+      Performer
     </th>
     <th>
-      {{movie1}}
+      Role in {{movie1Choice}}
     </th>
     <th>
-      {{movie2}}
+      Role in {{movie2Choice}}
     </th>
   </tr>
   <tr ng-repeat="actor in crossCast">

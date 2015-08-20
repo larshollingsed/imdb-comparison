@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  root "friends#index"
+  root to: 'search#movies'
+  
+  get "movies" => "search#movies"
   
   post "movie_search" => "search#movie_search"
   

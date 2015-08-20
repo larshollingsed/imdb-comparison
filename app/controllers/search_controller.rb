@@ -26,5 +26,8 @@ class SearchController < ApplicationController
     end
     render :json => movie_options
   end
+  
+  def movies
+  end
 
 end
